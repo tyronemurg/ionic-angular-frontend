@@ -15,6 +15,7 @@ export class ProductsPage implements OnInit {
   Products: any = [];
   user: User;
 
+  
   constructor(private productService: ProductsService,private router: Router, private route: ActivatedRoute,private authService: AuthService) { }
 
   ngOnInit() {
