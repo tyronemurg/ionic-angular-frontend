@@ -1,0 +1,40 @@
+<ion-content padding color="primary" color="White">
+  <div class="text-center">
+      <!-- <img class="logo" src="assets/iconp-512x512.png"> -->
+      <img style="width:100%;" src="../../../assets/login.png" />
+  </div>
+  <h3 class="h1 text-center"> Welcome</h3>
+  <h3 class="h2 text-center"> Please Log In </h3>
+
+  <form [formGroup]="ionicForm2" (ngSubmit)="submitForm()" method="post" novalidate>
+
+      <ion-item lines="full" class="text-center">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+      </ion-item>
+      <span class="error ion-padding text-center" *ngIf="isSubmitted && errorControl.email.errors?.required">
+          Email is required.
+        </span>
+      <span class="error ion-padding text-center" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+          Please provide valid email id.
+        </span>
+
+      <ion-item lines="full" class="text-center">
+          <ion-label position="floating" style="margin-bottom:10px;">Password</ion-label><br>
+          <ion-input formControlName="password" [type]="getType()">
+              <!-- <ion-icon name="eye" slot="end" (click)="toggleTextPassword()" style="margin-right:20px;"></ion-icon> -->
+          </ion-input>
+
+      </ion-item>
+      <span class="error ion-padding text-center" *ngIf="isSubmitted && errorControl.password.errors?.required">
+             Password is required.
+      </span>
+      <ion-row>
+          <ion-col>
+              <ion-button shape="round" expand="full" color="primary" type="submit" expand="block">Submit</ion-button>
+          </ion-col>
+      </ion-row>
+  </form>
+  <p class="text-center">Don't have a account?</p>
+  <ion-button shape="round" expand="full" color="danger" routerLink="/register" routerDirection="root">Register</ion-button>
+</ion-content>

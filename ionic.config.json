@@ -1,0 +1,10 @@
+{
+  "name": "voya-front",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

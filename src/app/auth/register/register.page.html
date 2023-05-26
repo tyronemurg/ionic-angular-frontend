@@ -1,0 +1,52 @@
+<ion-content padding color="primary" color="White">
+  <div class="text-center">
+    <img style="width:50%;" src="../../../assets/register.jpg" />
+</div>
+  <h3 class="h2 text-center"> Please Register Your Details </h3>
+  
+  <form [formGroup]="ionicForm2" (ngSubmit)="submitForm()" method="post" novalidate>
+
+    <ion-item lines="full" class="text-center">
+      <ion-label position="floating" style="margin-bottom:10px;">Name</ion-label><br>
+      <ion-input formControlName="name">
+      </ion-input>
+  </ion-item>
+
+    <ion-item lines="full" class="text-center">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="text"></ion-input>
+    </ion-item>
+    <span class="error ion-padding text-center" *ngIf="isSubmitted && errorControl.email.errors?.required">
+        Email is required.
+      </span>
+    <span class="error ion-padding text-center" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+        Please provide valid email id.
+      </span>
+
+      <!-- <ion-item lines="full" class="text-center">
+        <ion-label position="floating" style="margin-bottom:10px;">Mobile</ion-label><br>
+        <ion-input formControlName="phone_number" >
+        </ion-input>
+
+    </ion-item> -->
+
+    <ion-item lines="full" class="text-center">
+        <ion-label position="floating" style="margin-bottom:10px;">Password</ion-label><br>
+        <ion-input formControlName="password" [type]="getType()">
+            <!-- <ion-icon name="eye" slot="end" (click)="toggleTextPassword()" style="margin-right:20px;"></ion-icon> -->
+        </ion-input>
+
+    </ion-item>
+    
+    <span class="error ion-padding text-center" *ngIf="isSubmitted && errorControl.password.errors?.required">
+           Password is required.
+    </span>
+    <ion-row>
+        <ion-col>
+            <ion-button shape="round" expand="full" color="primary" type="submit" expand="block">Submit</ion-button>
+        </ion-col>
+    </ion-row>
+</form>
+<p class="text-center">Existing Account?</p>
+  <ion-button shape="round" expand="full" color="danger" routerLink="/login" routerDirection="root">Login</ion-button>
+</ion-content>

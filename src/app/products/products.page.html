@@ -1,0 +1,23 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>  <div *ngIf="user != undefined">
+      Hello, {{ user["name"] }}
+  </div></ion-title>
+  <!-- <ion-button (click)="logout()">Logout</ion-button> -->
+  </ion-toolbar> </ion-header
+>
+<ion-content>
+
+  <ion-card class="mt-30px" *ngFor="let product of Products">
+    <a [routerLink]="['/product-single', product.id]">
+    <img src="http://127.0.0.1:8000/storage/{{product.image}}" />
+  </a>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>{{product.body}}</ion-card-subtitle> -->
+      <ion-card-title>{{product.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{product.body}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
