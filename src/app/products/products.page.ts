@@ -20,6 +20,7 @@ export class ProductsPage implements OnInit {
 
   
   ngOnInit() {
+    
 
     this.authService.user().subscribe(
       user => {
