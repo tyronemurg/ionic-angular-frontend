@@ -3,9 +3,8 @@
     <ion-title>  <div *ngIf="user != undefined">
       Hello, {{ user["name"] }}
   </div></ion-title>
-  <!-- <ion-button (click)="logout()">Logout</ion-button> -->
-  </ion-toolbar> </ion-header
->
+   <ion-button (click)="logout()">Logout</ion-button>
+  </ion-toolbar> </ion-header>
 <ion-content>
 
   <ion-card class="mt-30px" *ngFor="let product of Products">

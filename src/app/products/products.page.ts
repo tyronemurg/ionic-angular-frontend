@@ -50,6 +50,21 @@ export class ProductsPage implements OnInit {
 
   }
   
-
+  logout() {
+    this.authService.logout().subscribe(
+      data => {
+           
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        setTimeout(()=>{
+          window.location.reload();
+        }, 100);
+        this.router.navigate(['/']);
+      }
+    );
+  }
 
 }
