@@ -55,6 +55,7 @@ export class AuthService {
     .pipe(
       tap(data => {
         this.storage.remove("token");
+        console.log(this.storage);
         this.isLoggedIn = false;
         delete this.token;
         return data;
