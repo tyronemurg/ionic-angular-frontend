@@ -6,7 +6,20 @@
    <ion-button (click)="logout()">Logout</ion-button>
   </ion-toolbar> </ion-header>
 <ion-content>
-
+  <ion-row class="sticky-row" (click)="hideresults()">
+    <ion-col size="12">
+      <ion-searchbar placeholder="Search for a meal"  (ionChange)="showresults()" [(ngModel)]="search" #searchbar></ion-searchbar>
+      <ion-list class="resultsList" *ngIf="results">
+        <ion-item *ngFor="let d of searchdata | filter:search:filterKeys">
+          <ion-col size="2">
+            <div class="meal-image-search" [routerLink]="['/product-single', d.id]" [style.background-image]="'url('+ baseUrl + d.image + ')'"></div>
+          </ion-col>
+          <ion-col [routerLink]="['/meals', d.id]">{{d.name}}</ion-col>
+          <ion-col><b>R{{d.price}}</b></ion-col>   
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
   <ion-card class="mt-30px" *ngFor="let product of Products">
     <a [routerLink]="['/product-single', product.id]">
     <img src="http://127.0.0.1:8000/storage/{{product.image}}" />
