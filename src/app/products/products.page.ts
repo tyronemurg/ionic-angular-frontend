@@ -32,9 +32,9 @@ export class ProductsPage implements OnInit {
       user => {
 
         this.user = user;
-        if (this.user.is_first == 1){
-        //alert("TESTING");
-        }
+        // if (this.user.is_first == 1){
+        // alert("TESTING");
+        // }
       }
     );
   }
