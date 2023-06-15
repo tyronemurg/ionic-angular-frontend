@@ -18,8 +18,8 @@ export class Products {
 })
 export class ProductsService {
 
- 
-
+  // Direct enpoints for testing
+  // Should be removed for prod or used in a service
   products_endpoint = 'http://127.0.0.1:8000/api/products';
   product_endpoint = 'http://127.0.0.1:8000/api/product';
 
@@ -31,7 +31,7 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
-
+//Get Products Service
   getProducts(): Observable<Products[]> {
     return this.httpClient.get<Products[]>(this.products_endpoint)
       .pipe(
@@ -39,7 +39,7 @@ export class ProductsService {
         catchError(this.handleError<Products[]>('Get Products', []))
       );
   }
-
+  //Get Single Products with ID Service
   getProductID(id): Observable<Products[]> {
     return this.httpClient.get<Products[]>(this.product_endpoint + '/' + id )
       .pipe(
@@ -48,7 +48,7 @@ export class ProductsService {
       );
   }
 
-
+//Get Single Product with ID Service
   getProduct(id): Observable<Products[]> {
     return this.httpClient.get<Products[]>(this.products_endpoint + '/' + id)
       .pipe(
@@ -57,7 +57,7 @@ export class ProductsService {
       );
   }
 
-
+//Handelling the error and return error message
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
